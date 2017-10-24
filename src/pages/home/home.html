@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home - YAHC</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Welcome to YAHC!
+    </ion-card-header>
+    <ion-card-content>
+      Yet Another HTTP Client is an HTTP client designed for mobile use.
+    </ion-card-content>
+    <ion-list>
+      <button ion-item (click)="toNewEnvironments()">
+        <ion-icon name="color-wand" item-start></ion-icon>
+        New Environment
+      </button>
+      <button ion-item (click)="toEnvironments()">
+        <ion-icon name="albums" item-start></ion-icon>
+        Saved Environments
+      </button>
+      <button ion-item (click)="toSettings()">
+        <ion-icon name="cog" item-start></ion-icon>
+        Settings
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>
