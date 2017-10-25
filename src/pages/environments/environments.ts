@@ -1,24 +1,27 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { EnvironmentPage } from '../environment/environment'
+
 @Component({
   selector: 'page-environments',
   templateUrl: 'environments.html'
 })
 export class EnvironmentsPage {
 
-  items : any;
+  environments : any;
 
   constructor(public navCtrl: NavController) {
-    this.items = [
+    this.environments = [
       { "name": "The Best Server", "color": "primary", "icon": "leaf"},
       { "name": "The Meh Server", "color": "secondary", "icon": "beaker"},
       { "name": "The Worst Server", "color": "danger", "icon": "cog"}
     ];
   }
 
-  itemSelected(item){
-    console.log(item)
+  toEnvironment(environment){
+    console.log("To " + environment.name)
+    this.navCtrl.push(EnvironmentPage, environment)
   }
 
 }

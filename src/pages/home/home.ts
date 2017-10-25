@@ -24,6 +24,11 @@ export class HomePage {
     this.navCtrl.parent.select(1);
   }
 
+  toSandbox(){
+    console.log("Going to SandboxPage")
+    this.navCtrl.parent.select(2);
+  }
+
   toSettings(){
     console.log("Going to SettingsPage")
     this.navCtrl.parent.select(3);

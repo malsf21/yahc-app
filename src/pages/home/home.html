@@ -13,6 +13,10 @@
       Yet Another HTTP Client is an HTTP client designed for mobile use.
     </ion-card-content>
     <ion-list>
+      <button ion-item (click)="toSandbox()">
+        <ion-icon name="easel" item-start></ion-icon>
+        New Sandbox
+      </button>
       <button ion-item (click)="toNewEnvironments()">
         <ion-icon name="color-wand" item-start></ion-icon>
         New Environment
@@ -22,7 +26,7 @@
         Saved Environments
       </button>
       <button ion-item (click)="toSettings()">
-        <ion-icon name="cog" item-start></ion-icon>
+        <ion-icon name="settings" item-start></ion-icon>
         Settings
       </button>
     </ion-list>

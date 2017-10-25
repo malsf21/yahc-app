@@ -9,9 +9,9 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Saved Environments</ion-list-header>
-    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
-      <ion-icon name="{{item.icon}}" color="{{item.color}}" item-start></ion-icon>
-      {{ item.name }}
+    <button ion-item *ngFor="let environment of environments" (click)="toEnvironment(environment)">
+      <ion-icon name="{{environment.icon}}" color="{{environment.color}}" environment-start></ion-icon>
+      {{ environment.name }}
     </button>
   </ion-list>
 </ion-content>

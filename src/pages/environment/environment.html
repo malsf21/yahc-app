@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{this.name}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>Saved Presets</ion-list-header>
+    <button ion-item *ngFor="let preset of presets" (click)="toPreset(preset)">
+      <ion-icon name="{{preset.icon}}" color="{{preset.color}}" item-start></ion-icon>
+      {{ preset.name }}
+    </button>
+  </ion-list>
+</ion-content>

@@ -10,6 +10,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Network } from '@ionic-native/network';
 
 import { AboutPage } from '../pages/about/about';
+import { ClientPage } from '../pages/client/client';
+import { EnvironmentPage } from '../pages/environment/environment';
 import { EnvironmentsPage } from '../pages/environments/environments';
 import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
@@ -22,6 +24,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     YAHCApp,
     AboutPage,
+    ClientPage,
+    EnvironmentPage,
     EnvironmentsPage,
     HomePage,
     SettingsPage,
@@ -29,6 +33,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(YAHCApp),
     IonicStorageModule.forRoot()
   ],
@@ -36,6 +41,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     YAHCApp,
     AboutPage,
+    ClientPage,
+    EnvironmentPage,
     EnvironmentsPage,
     HomePage,
     SettingsPage,
