@@ -7,6 +7,41 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Client</h2>
+  <ion-list>
+    <ion-list-header>Options</ion-list-header>
+    <ion-item>
+      <ion-label>URL</ion-label>
+      <ion-input type="text" [(ngModel)]="url"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>TYPE</ion-label>
+      <ion-select [(ngModel)]="type">
+        <ion-option value="GET">GET</ion-option>
+        <ion-option value="POST">POST</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
   <button ion-button (click)="getData()">Get Data</button>
+  <ion-list>
+    <ion-list-header>Response</ion-list-header>
+    <ion-item>
+      Status: <ion-badge color="{{this.statusC}}">{{this.status}}</ion-badge>
+    </ion-item>
+    <ion-list-header>Response Headers</ion-list-header>
+    <ion-item text-wrap>
+      {{this.headers}}
+    </ion-item>
+    <ion-list-header>Response Body</ion-list-header>
+    <ion-item text-wrap>
+      {{this.body}}
+    </ion-item>
+    <div *ngIf="sent">
+      <div *ngIf="interpretJSON">
+        <ion-list-header>Response Body (JSON)</ion-list-header>
+        <ion-item *ngFor="let key of bodyKeys" text-wrap>
+          "{{key}}": "{{bodyJSON[key]}}"
+        </ion-item>
+      </div>
+    </div>
+  </ion-list>
 </ion-content>

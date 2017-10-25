@@ -8,7 +8,6 @@ import { ClientPage } from '../client/client'
   templateUrl: 'environment.html'
 })
 export class EnvironmentPage {
-
   name: string;
   presets: any;
 
@@ -16,9 +15,9 @@ export class EnvironmentPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.name = navParams.get("name")
     this.presets = [
-      { "name": "The Best Page", "type": "preset", "color": "primary", "icon": "leaf"},
-      { "name": "The Meh Page", "type": "preset", "color": "secondary", "icon": "beaker"},
-      { "name": "The Worst Page", "type": "preset", "color": "danger", "icon": "cog"}
+      { "name": "The Best Page", "sandbox": false, "color": "primary", "icon": "leaf"},
+      { "name": "The Meh Page", "sandbox": false, "color": "secondary", "icon": "beaker"},
+      { "name": "The Worst Page", "sandbox": false, "color": "danger", "icon": "cog"}
     ];
   }
 
