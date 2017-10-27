@@ -20,6 +20,9 @@
         <ion-option value="POST">POST</ion-option>
       </ion-select>
     </ion-item>
+    <div *ngIf="type=='POST'">
+      <ion-list-header>POST Options</ion-list-header>
+    </div>
   </ion-list>
   <button ion-button (click)="getData()">Get Data</button>
   <ion-list>

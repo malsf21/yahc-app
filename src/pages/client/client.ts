@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Http, Headers, Request, Response } from '@angular/http';
+import { Http, /*Headers, Request, Response*/ } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -16,6 +16,7 @@ export class ClientPage {
   type: string;
   status: string;
   statusC: string;
+  opts: any;
   body: string;
   bodyKeys: any;
   bodyJSON: any;
@@ -48,10 +49,11 @@ export class ClientPage {
     else{
       this.url = "https://www.foaas.com/caniuse/YAHS/Matt";
     }
+    this.opts = {};
     this.sent = false;
     this.status = "Not Sent";
     this.statusC = "dark";
-    this.interpret = "json";
+    //this.interpret = "json";
     this.interpretJSON = true;
   }
 
@@ -64,7 +66,7 @@ export class ClientPage {
       console.log(this.bodyKeys)
     }
     this.status = String(data.status) + " " + data.statusText;
-    if (data.status === 200){
+    if (data.status === 200 || data.statusText == "OK"){
       this.statusC = "secondary";
     }
     else{
@@ -78,19 +80,37 @@ export class ClientPage {
 
   getData(){
     // initialize loader
-    this.http.get(this.url).subscribe(
-      data => {
-        // stop loader w/ success toast
-        this.sent = true;
-        this.formatData(data)
-        this.cdRef.detectChanges();
-      },
-      err => {
-        // stop loader w/ error toast
-        this.sent = true;
-        this.formatData(err)
-        this.cdRef.detectChanges();
-      }
-    );
+    if (this.type == "GET"){
+      this.http.get(this.url).subscribe(
+        data => {
+          // stop loader w/ success toast
+          this.sent = true;
+          this.formatData(data)
+          this.cdRef.detectChanges();
+        },
+        err => {
+          // stop loader w/ error toast
+          this.sent = true;
+          this.formatData(err)
+          this.cdRef.detectChanges();
+        }
+      );
+    }
+    else if (this.type == "POST"){
+      this.http.post(this.url, this.opts).subscribe(
+        data => {
+          // stop loader w/ success toast
+          this.sent = true;
+          this.formatData(data)
+          this.cdRef.detectChanges();
+        },
+        err => {
+          // stop loader w/ error toast
+          this.sent = true;
+          this.formatData(err)
+          this.cdRef.detectChanges();
+        }
+      );
+    }
   }
 }
